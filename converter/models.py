@@ -3,9 +3,9 @@ from django.contrib.postgres.fields import ArrayField
 
 # Create your models here.
 class Geometry(gis_models.Model):
-    place = gis_models.CharField(max_length=200, blank=True)
-    Type = gis_models.CharField(max_length=20)
-    geom = ArrayField(base_field=gis_models.PointField())
+    place = gis_models.CharField(max_length=200, blank=True, null=True)
+    Type = gis_models.CharField(max_length=20, null=True)
+    geom = ArrayField(base_field=gis_models.PointField(), blank=True, null=True)
 
     class Meta:
         verbose_name_plural = 'Geometry'
@@ -14,18 +14,18 @@ class Geometry(gis_models.Model):
         return self.place
 
 class Properties(gis_models.Model):
-    place = gis_models.ForeignKey(Geometry, on_delete=gis_models.CASCADE)
+    place = gis_models.CharField(max_length=200, blank=True, null=True)
     pk_track = gis_models.IntegerField(primary_key=True, blank=True)
-    noiselevel = gis_models.DecimalField(max_digits=20, decimal_places=2, blank=True)
-    timelength = gis_models.DecimalField(max_digits=20, decimal_places=1, blank=True)
-    tags = ArrayField(base_field=gis_models.CharField(max_length=20), blank=True)
-    time_epoch = gis_models.IntegerField(blank=True)
-    pleasantness = gis_models.IntegerField(blank=True)
-    track_uuid = gis_models.CharField(max_length=1000, blank=True)
-    time_ISO8601 = gis_models.DateTimeField(blank=True)
+    noiselevel = gis_models.DecimalField(max_digits=20, decimal_places=2, blank=True, null=True)
+    timelength = gis_models.DecimalField(max_digits=20, decimal_places=1, blank=True, null=True)
+    tags = ArrayField(base_field=gis_models.CharField(max_length=20), blank=True, null=True)
+    time_epoch = gis_models.CharField(max_length=200, blank=True, null=True)
+    pleasantness = gis_models.IntegerField(blank=True, null=True)
+    track_uuid = gis_models.CharField(max_length=1000, blank=True, null=True)
+    time_ISO8601 = gis_models.CharField(max_length=200, blank=True, null=True)
 
     class Meta:
         verbose_name_plural = 'Properties'
 
     def __str__(self):
-        return self.place.place
+        return self.place
