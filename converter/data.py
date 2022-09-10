@@ -27,7 +27,7 @@ try:
     cursor = connection.cursor()
 
     # upload file
-    with open("C:/Users/MBUGUA/Downloads/Compressed/New folder/Tracks/Kenya_Nairobi_Dagoretti North.tracks.geojson") as file:
+    with open("C:/Users/MBUGUA/Downloads/Compressed/New folder/Tracks/Kenya_Nairobi_Westlands.tracks.geojson") as file:
         feature = json.load(file)
         place = "Kenya_Nairobi_Dagoretti North"
         geom = []
