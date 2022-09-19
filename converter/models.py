@@ -42,3 +42,11 @@ class UserProfile(AbstractUser):
 
     def __str__(self):
         return self.username
+
+class UserUploadedData(gis_models.Model):
+    user = gis_models.ForeignKey(UserProfile, on_delete=gis_models.CASCADE)
+    place = gis_models.CharField(max_length=200, blank=True, null=True)
+    noiselevel = gis_models.DecimalField(max_digits=20, decimal_places=2, blank=True, null=True)
+    timelength = gis_models.DecimalField(max_digits=20, decimal_places=1, blank=True, null=True)
+    place = gis_models.CharField(max_length=200, blank=True, null=True)
+    pleasantness = gis_models.IntegerField(blank=True, null=True)

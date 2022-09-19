@@ -21,7 +21,7 @@ try:
         password = "George026#",
         host = "127.0.0.1",
         port = "5432",
-        database = "gis"
+        database = "map1"
     )
 
     cursor = connection.cursor()
