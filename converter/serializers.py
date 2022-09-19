@@ -1,5 +1,23 @@
+from dataclasses import field
 from rest_framework import serializers
-from converter.models import Properties, UserProfile
+from converter.models import Properties, UserProfile, UserUploadedData
+
+class UserUploadSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = UserUploadedData
+        field = ('user', 'place', 'noiselevel', 'timelength', 'noise_type', 'pleasantness')
+
+        def save(self):
+            data = UserUploadedData(
+                place = self.validated_data['place'],
+                noiselevel = self.validated_data['noiselevel'],
+                timelength = self.validated_data['timelength'],
+                noise_type = self.validated_data['noise_type'],
+                pleasantness = self.validated_data['pleasantness'],
+            )
+            data.user = self.request.user
+            data.save()
+            return data
 
 class NoiseSerializer(serializers.ModelSerializer):
     class Meta:

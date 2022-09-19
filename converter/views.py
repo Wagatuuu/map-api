@@ -1,5 +1,5 @@
 from rest_framework.response import Response
-from converter.serializers import NoiseSerializer, ProfileSerializer
+from converter.serializers import NoiseSerializer, ProfileSerializer, UserUploadSerializer
 from converter.models import Properties
 from rest_framework import generics, permissions, status
 from rest_framework.decorators import api_view, permission_classes
@@ -28,6 +28,25 @@ def register(request):
             data['response'] = 'success'
             data['email'] = user.email
             data['username'] = user.username
+        else:
+            data = serializer.errors
+        return Response(data)
+
+@api_view(['POST',])
+@permission_classes((permissions.AllowAny,))
+def upload(request):
+    if request.method == 'POST':
+        serializer = UserUploadSerializer(data=request.data)
+        data = {}
+
+        if serializer.is_valid():
+            user = serializer.save()
+            data['response'] = 'success'
+            data['place'] = user.place
+            data['noiselevel'] = user.noiselevel
+            data['timelength'] = user.timelength
+            data['noise_type'] = user.noise_type
+            data['pleasantness'] = user.pleasantness
         else:
             data = serializer.errors
         return Response(data)
