@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'converter',
     'rest_framework',
     'corsheaders',
+    'rest_framework.authtoken',
 ]
 
 MIDDLEWARE = [
@@ -78,14 +79,14 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'API.wsgi.application'
 
-
+AUTH_USER_MODEL = 'converter.UserProfile'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.contrib.gis.db.backends.postgis',
-        'NAME': 'gis',
+        'NAME': 'map1',
         'USER':'postgres',
         'PASSWORD':'George026#',
         'HOST':'127.0.0.1',
