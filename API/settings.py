@@ -168,7 +168,7 @@ if os.name == 'nt':
     os.environ['PROJ_LIB'] = OSGEO4W + r"\share\proj"
     os.environ['PATH'] = OSGEO4W + r"\bin;" + os.environ['PATH']
 
-GDAL_LIBRARY_PATH = os.environ['PATH']
+GDAL_LIBRARY_PATH = r'C:\OSGeo4W64\bin\gdal300'
 
 CORS_ORIGIN_ALLOW_ALL = True
 
