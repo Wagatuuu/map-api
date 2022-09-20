@@ -168,7 +168,9 @@ if os.name == 'nt':
     os.environ['PROJ_LIB'] = OSGEO4W + r"\share\proj"
     os.environ['PATH'] = OSGEO4W + r"\bin;" + os.environ['PATH']
 
-GDAL_LIBRARY_PATH = r'C:\OSGeo4W64\bin\gdal305.dll'
+OSGEO_VENV = Path(__file__).parents[1] / 'venv/Lib/site-packages/osgeo/'
+GEOS_LIBRARY_PATH = str(OSGEO_VENV / 'geos_c.dll')
+GDAL_LIBRARY_PATH = str(OSGEO_VENV / 'gdal305.dll')
 
 CORS_ORIGIN_ALLOW_ALL = True
 
