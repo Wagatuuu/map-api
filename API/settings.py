@@ -158,7 +158,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Geodjango SETUP
 from pathlib import PureWindowsPath
 
-GDAL_LIBRARY_PATH = PureWindowsPath("C:\\OSGeo4W64\\bin\\gdal305")
+GDAL_LIBRARY_PATH = PureWindowsPath("C:\\OSGeo4W64\\bin\\gdal305.dll")
 
 if os.name == 'nt':
     import platform
