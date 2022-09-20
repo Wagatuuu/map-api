@@ -168,7 +168,7 @@ if os.name == 'nt':
     os.environ['PROJ_LIB'] = OSGEO4W + r"\share\proj"
     os.environ['PATH'] = OSGEO4W + r"\bin;" + os.environ['PATH']
 
-GDAL_LIBRARY_PATH = 'C:\Users\MBUGUA\Desktop\Projects\converter\Lib\site-packages\django\contrib\gis\gdal'
+# GDAL_LIBRARY_PATH = 'C:\Users\MBUGUA\Desktop\Projects\converter\Lib\site-packages\django\contrib\gis\gdal'
 
 CORS_ORIGIN_ALLOW_ALL = True
 
