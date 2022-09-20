@@ -44,15 +44,15 @@ class UserProfile(AbstractUser):
         return self.username
 
 class UserUploadedData(gis_models.Model):
-    user = gis_models.ForeignKey(UserProfile, on_delete=gis_models.CASCADE)
+    user = gis_models.ForeignKey(UserProfile, on_delete=gis_models.CASCADE, null=True, blank=True)
     place = gis_models.CharField(max_length=200, blank=True, null=True)
-    noiselevel = gis_models.DecimalField(max_digits=20, decimal_places=2, blank=True, null=True)
-    timelength = gis_models.DecimalField(max_digits=20, decimal_places=1, blank=True, null=True)
+    noiselevel = gis_models.CharField(max_length=200, blank=True, null=True)
+    timelength = gis_models.CharField(max_length=200, blank=True, null=True)
     noise_type = gis_models.CharField(max_length=200, blank=True, null=True)
-    pleasantness = gis_models.IntegerField(blank=True, null=True)
+    pleasantness = gis_models.CharField(max_length=200, blank=True, null=True)
 
     class Meta:
         verbose_name_plural = 'UserUploadedData'
     
     def __str__(self):
-        return self.user
+        return self.user.username

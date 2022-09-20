@@ -5,7 +5,7 @@ from converter.models import Properties, UserProfile, UserUploadedData
 class UserUploadSerializer(serializers.ModelSerializer):
     class Meta:
         model = UserUploadedData
-        field = ('user', 'place', 'noiselevel', 'timelength', 'noise_type', 'pleasantness')
+        fields = ('user', 'place', 'noiselevel', 'timelength', 'noise_type', 'pleasantness')
 
         def save(self):
             data = UserUploadedData(
@@ -15,7 +15,6 @@ class UserUploadSerializer(serializers.ModelSerializer):
                 noise_type = self.validated_data['noise_type'],
                 pleasantness = self.validated_data['pleasantness'],
             )
-            data.user = self.request.user
             data.save()
             return data
 

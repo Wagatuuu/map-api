@@ -6,6 +6,7 @@ from rest_framework.decorators import api_view, permission_classes
 from rest_framework.authtoken.models import Token
 from rest_framework.views import APIView
 from django.contrib.auth import authenticate
+from rest_framework.permissions import IsAuthenticated
 
 # Create your views here.
 class NoiseInfoView(generics.ListAPIView):
@@ -33,23 +34,27 @@ def register(request):
         return Response(data)
 
 @api_view(['POST',])
-@permission_classes((permissions.AllowAny,))
+@permission_classes((IsAuthenticated,))
 def upload(request):
-    if request.method == 'POST':
-        serializer = UserUploadSerializer(data=request.data)
-        data = {}
+    if request.user.is_authenticated:
+        if request.method == 'POST':
+            serializer = UserUploadSerializer(data=request.data)    
+            data = {}                       
 
-        if serializer.is_valid():
-            user = serializer.save()
-            data['response'] = 'success'
-            data['place'] = user.place
-            data['noiselevel'] = user.noiselevel
-            data['timelength'] = user.timelength
-            data['noise_type'] = user.noise_type
-            data['pleasantness'] = user.pleasantness
-        else:
-            data = serializer.errors
-        return Response(data)
+            if serializer.is_valid():
+                userdata = serializer.save()
+                userdata.user = request.user
+                userdata.save()
+                data['response'] = 'success'
+                data['place'] = userdata.place
+                data['noiselevel'] = userdata.noiselevel
+                data['timelength'] = userdata.timelength
+                data['noise_type'] = userdata.noise_type
+                data['pleasantness'] = userdata.pleasantness
+            else:
+                data = serializer.errors
+            return Response(data)
+    return Response({'failed': 'user not authenticated'})
 
 @permission_classes((permissions.AllowAny,))
 class TokenView(APIView):
