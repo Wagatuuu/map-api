@@ -69,3 +69,13 @@ class TokenView(APIView):
             return Response({"token": user.auth_token.key, "user": serializer.data})
         else:
             return Response({"error": "Wrong credentials"}, status = status.HTTP_400_BAD_REQUEST)
+
+class CurView(generics.ListApiView):
+    permission_classes = [IsAuthenticated]
+    lookup_field = 'pk'
+    
+    def get(self, request):
+        res = []
+        serializer = ProfileSerializer(request.user)
+        res.append(serializer.data)
+        return Response(res)
