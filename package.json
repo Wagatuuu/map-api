@@ -1,0 +1,12 @@
+{
+    "name": "myproject",
+    "version": "2.0.0",
+    "description": "My Django project",
+    "scripts": {
+      "build": "npm install"
+    },
+    "devDependencies": {
+      "psycopg2": "*"
+    }
+  }
+  
