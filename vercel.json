@@ -14,11 +14,6 @@
         }
       }
     ],
-    "exclude": [
-      "psycopg2/",
-      ".gitignore",
-      ".git/"
-    ],
     "routes": [
       {
         "src": "/static/(.*)",
