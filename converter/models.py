@@ -1,4 +1,4 @@
-from django.contrib.gis.db import models as gis_models
+from django.db import models as gis_models
 from django.contrib.postgres.fields import ArrayField
 from django.contrib.auth.models import AbstractUser
 
