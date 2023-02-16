@@ -89,7 +89,7 @@ AUTH_USER_MODEL = 'converter.UserProfile'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.contrib.gis.db.backends.postgis',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'map1',
         'USER':'postgres',
         'PASSWORD':'George026#',
@@ -157,9 +157,9 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Geodjango SETUP
-from pathlib import PureWindowsPath
+# from pathlib import PureWindowsPath
 
-GDAL_LIBRARY_PATH = PureWindowsPath("C:\\OSGeo4W64\\bin\\gdal305.dll")
+# GDAL_LIBRARY_PATH = PureWindowsPath("C:\\OSGeo4W64\\bin\\gdal305.dll")
 
 CORS_ORIGIN_ALLOW_ALL = True
 
