@@ -159,7 +159,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Geodjango SETUP
 # from pathlib import PureWindowsPath
 
-# GDAL_LIBRARY_PATH = PureWindowsPath("C:\\OSGeo4W64\\bin\\gdal305.dll")
+GDAL_LIBRARY_PATH = PureWindowsPath("C:\\OSGeo4W64\\bin\\gdal305.dll")
 
 CORS_ORIGIN_ALLOW_ALL = True
 
