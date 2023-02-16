@@ -70,7 +70,7 @@ class TokenView(APIView):
         else:
             return Response({"error": "Wrong credentials"}, status = status.HTTP_400_BAD_REQUEST)
 
-class CurView(generics.ListApiView):
+class CurView(generics.ListAPIView):
     permission_classes = [IsAuthenticated]
     lookup_field = 'pk'
     
