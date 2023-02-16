@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 from pathlib import Path
 import os
-import django_heroku
 import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -182,5 +181,3 @@ CORS_ORIGIN_WHITELIST = [
     'http://127.0.0.1:3000',
     'https://noise-screening-lite.netlify.app',
 ]
-
-django_heroku.settings(locals())
