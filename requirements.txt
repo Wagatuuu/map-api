@@ -6,5 +6,6 @@ django-heroku==0.3.1
 djangorestframework==3.13.1
 
 psycopg2-binary~=2.9.3
-
-whitenoise==6.2.0
+pytz==2022.2.1
+sqlparse==0.4.2
+tzdata==2022.1
