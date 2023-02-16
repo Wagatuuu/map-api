@@ -6,7 +6,7 @@ from django.contrib.auth.models import AbstractUser
 class Geometry(gis_models.Model):
     place = gis_models.CharField(max_length=200, blank=True, null=True)
     Type = gis_models.CharField(max_length=20, null=True)
-    geom = ArrayField(base_field=gis_models.PointField(), blank=True, null=True)
+    # geom = ArrayField(base_field=gis_models.PointField(), blank=True, null=True)
 
     class Meta:
         verbose_name_plural = 'Geometry'
