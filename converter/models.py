@@ -1,5 +1,4 @@
 from django.db import models as gis_models
-from django.contrib.postgres.fields import ArrayField
 from django.contrib.auth.models import AbstractUser
 
 # Create your models here.
@@ -19,7 +18,7 @@ class Properties(gis_models.Model):
     pk_track = gis_models.IntegerField(primary_key=True, blank=True)
     noiselevel = gis_models.DecimalField(max_digits=20, decimal_places=2, blank=True, null=True)
     timelength = gis_models.DecimalField(max_digits=20, decimal_places=1, blank=True, null=True)
-    tags = ArrayField(base_field=gis_models.CharField(max_length=20), blank=True, null=True)
+    # tags = ArrayField(base_field=gis_models.CharField(max_length=20), blank=True, null=True)
     time_epoch = gis_models.CharField(max_length=200, blank=True, null=True)
     pleasantness = gis_models.IntegerField(blank=True, null=True)
     track_uuid = gis_models.CharField(max_length=1000, blank=True, null=True)
