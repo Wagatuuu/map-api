@@ -89,8 +89,12 @@ AUTH_USER_MODEL = 'converter.UserProfile'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': "railway",
+        'USER': "postgres",
+        "PASSWORD": "bTzE32s2RkXm1aP7IVZm",
+        "HOST": "containers-us-west-63.railway.app",
+        "PORT": "7007",
     }
 }
 
